@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Achadinhos do Dequinho | Ofertas do Mercado Livre</title>
+  <style>
+    :root {
+      --ml-yellow: #fff159;
+      --ml-blue: #2d3277;
+      --ml-blue-hover: #1e2252;
+      --bg-gray: #edd0d000;
+      --card-bg: #ffffff;
+      --text-main: #333333;
+      --text-muted: #666666;
+      --green-discount: #00a650;
+      --badge-full: #00a650;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+
+    body {
+      background-color: #f5f5f5;
+      color: var(--text-main);
+      padding-bottom: 50px;
+    }
+
+    header {
+      background-color: var(--ml-yellow);
+      padding: 15px 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-area h1 {
+      font-size: 1.4rem;
+      color: var(--ml-blue);
+      font-weight: 800;
+    }
+
+    .search-box {
+      width: 100%;
+      position: relative;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 12px 15px;
+      border: none;
+      border-radius: 4px;
+      font-size: 0.95rem;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+      outline: none;
+    }
+
+    .categories {
+      max-width: 1200px;
+      margin: 15px auto;
+      padding: 0 15px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    .cat-btn {
+      background: #ffffff;
+      border: 1px solid #ddd;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--text-muted);
+      transition: all 0.2s;
+    }
+
+    .cat-btn.active, .cat-btn:hover {
+      background: var(--ml-blue);
+      color: white;
+      border-color: var(--ml-blue);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 15px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .card-img {
+      width: 100%;
+      height: 200px;
+      object-fit: contain;
+      background: #fff;
+      padding: 10px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .card-body {
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .badge {
+      align-self: flex-start;
+      background: #ffebd9;
+      color: #ff7733;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 3px 6px;
+      border-radius: 3px;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+
+    .title {
+      font-size: 0.9rem;
+      color: var(--text-main);
+      line-height: 1.3;
+      margin-bottom: 8px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      height: 2.6em;
+    }
+
+    .old-price {
+      font-size: 0.75rem;
+      color: #999;
+      text-decoration: line-through;
+    }
+
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .price {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .discount {
+      color: var(--green-discount);
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .tags {
+      display: flex;
+      gap: 5px;
+      margin-bottom: 12px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .tag-full {
+      color: var(--badge-full);
+      font-style: italic;
+    }
+
+    .tag-shipping {
+      color: var(--green-discount);
+    }
+
+    .btn-buy {
+      display: block;
+      width: 100%;
+      background: var(--ml-blue);
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-top: auto;
+      transition: background 0.2s;
+    }
+
+    .btn-buy:hover {
+      background: var(--ml-blue-hover);
+    }
+
+    @media (min-width: 600px) {
+      .header-container {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .search-box {
+        max-width: 500px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-container">
+      <div class="logo-area">
+        <h1>🔍 Achadinhos do Dequinho</h1>
+      </div>
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Buscar produtos, ferramentas, acessórios..." oninput="filterProducts()">
+      </div>
+    </div>
+  </header>
+
+  <div class="categories">
+    <button class="cat-btn active" onclick="filterCategory('todos', this)">Todos</button>
+    <button class="cat-btn" onclick="filterCategory('ferramentas', this)">Ferramentas</button>
+    <button class="cat-btn" onclick="filterCategory('casa', this)">Casa & Utilidades</button>
+    <button class="cat-btn" onclick="filterCategory('eletronicos', this)">Eletrónicos</button>
+    <button class="cat-btn" onclick="filterCategory('auto', this)">Automotivo</button>
+  </div>
+
+  <div class="container">
+    <div class="grid" id="productGrid"></div>
+  </div>
+
+  <script>
+    // LISTA DE PRODUTOS
+    const products = [
+      {
+        id: 1,
+        title: "Jogo De Ferramentas Com Maleta Completa",
+        category: "ferramentas",
+        originalPrice: "R$ 199,90",
+        price: "R$ 139,90",
+        discount: "30% OFF",
+        badge: "Oferta do Dia",
+        full: true,
+        freeShipping: true,
+        image: "https://http2.mlstatic.com/D_NQ_NP_632009-MLB72671569032_112023-O.webp",
+        link: "https://mercadolivre.com.br"
+      },
+      {
+        id: 2,
+        title: "Kit Chaves De Fenda E Philips De Precisão",
+        category: "ferramentas",
+        originalPrice: "R$ 89,90",
+        price: "R$ 49,90",
+        discount: "44% OFF",
+        badge: "Mais Vendido",
+        full: true,
+        freeShipping: false,
+        image: "https://http2.mlstatic.com/D_NQ_NP_881775-MLB74116564032_012024-O.webp",
+        link: "https://mercadolivre.com.br"
+      }
+    ];
+
+    let currentCategory = 'todos';
+
+    function renderProducts(items) {
+      const grid = document.getElementById('productGrid');
+      grid.innerHTML = '';
+
+      if (items.length === 0) {
+        grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; padding: 40px; color: #777;">Nenhum produto encontrado.</p>';
+        return;
+      }
+
+      items.forEach(p => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <img src="${p.image}" class="card-img" alt="${p.title}">
+          <div class="card-body">
+            ${p.badge ? `<span class="badge">${p.badge}</span>` : ''}
+            <h2 class="title">${p.title}</h2>
+            ${p.originalPrice ? `<span class="old-price">${p.originalPrice}</span>` : ''}
+            <div class="price-row">
+              <span class="price">${p.price}</span>
+              ${p.discount ? `<span class="discount">${p.discount}</span>` : ''}
+            </div>
+            <div class="tags">
+              ${p.full ? `<span class="tag-full">⚡ FULL</span>` : ''}
+              ${p.freeShipping ? `<span class="tag-shipping">Frete Grátis</span>` : ''}
+            </div>
+            <a href="${p.link}" target="_blank" class="btn-buy">Ver no Mercado Livre</a>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function filterProducts() {
+      const text = document.getElementById('searchInput').value.toLowerCase();
+      const filtered = products.filter(p => {
+        const matchesCategory = currentCategory === 'todos' || p.category === currentCategory;
+        const matchesText = p.title.toLowerCase().includes(text);
+        return matchesCategory && matchesText;
+      });
+      renderProducts(filtered);
+    }
+
+    function filterCategory(cat, btn) {
+      currentCategory = cat;
+      document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      filterProducts();
+    }
+
+    // Carregar produtos ao iniciar
+    renderProducts(products);
+  </script>
+</body>
+</html>
