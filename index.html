@@ -177,12 +177,6 @@
       color: var(--ml-blue);
     }
 
-    .old-price {
-      font-size: 0.75rem;
-      color: #999;
-      text-decoration: line-through;
-    }
-
     .price-row {
       display: flex;
       align-items: baseline;
@@ -191,15 +185,9 @@
     }
 
     .price {
-      font-size: 1.3rem;
+      font-size: 1.1rem;
       font-weight: 700;
       color: var(--text-main);
-    }
-
-    .discount {
-      color: var(--green-discount);
-      font-size: 0.8rem;
-      font-weight: 600;
     }
 
     .tags {
@@ -276,43 +264,41 @@
   </div>
 
   <script>
-    const defaultImg = "https://http2.mlstatic.com/D_NQ_NP_632009-MLB72671569032_112023-O.webp";
-
     const products = [
-      { id: 1, title: "Achado Imperdível - Oferta Especial Mercado Livre #1", category: "ferramentas", price: "Confira na loja", badge: "Destaque", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/1oj63h8" },
-      { id: 2, title: "Achado Imperdível - Oferta Especial Mercado Livre #2", category: "ferramentas", price: "Confira na loja", badge: "Oferta", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/1W27mkD" },
-      { id: 3, title: "Achado Imperdível - Oferta Especial Mercado Livre #3", category: "ferramentas", price: "Confira na loja", badge: "Mais Vendido", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/1jjQxdG" },
-      { id: 4, title: "Achado Imperdível - Oferta Especial Mercado Livre #4", category: "casa", price: "Confira na loja", badge: "Super Oferta", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/1H9jUHN" },
-      { id: 5, title: "Achado Imperdível - Oferta Especial Mercado Livre #5", category: "casa", price: "Confira na loja", badge: "Promocional", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/2Pvv2ow" },
-      { id: 6, title: "Achado Imperdível - Oferta Especial Mercado Livre #6", category: "ferramentas", price: "Confira na loja", badge: "Destaque", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/29DHo1j" },
-      { id: 7, title: "Achado Imperdível - Oferta Especial Mercado Livre #7", category: "casa", price: "Confira na loja", badge: "Oferta", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/1u4cMde" },
-      { id: 8, title: "Achado Imperdível - Oferta Especial Mercado Livre #8", category: "eletronicos", price: "Confira na loja", badge: "Mais Vendido", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/2oggFQ9" },
-      { id: 9, title: "Achado Imperdível - Oferta Especial Mercado Livre #9", category: "ferramentas", price: "Confira na loja", badge: "Destaque", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/1i556Ng" },
-      { id: 10, title: "Achado Imperdível - Oferta Especial Mercado Livre #10", category: "casa", price: "Confira na loja", badge: "Oferta", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/1CY1Gsn" },
-      { id: 11, title: "Achado Imperdível - Oferta Especial Mercado Livre #11", category: "auto", price: "Confira na loja", badge: "Destaque", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/27Qa4nN" },
-      { id: 12, title: "Achado Imperdível - Oferta Especial Mercado Livre #12", category: "ferramentas", price: "Confira na loja", badge: "Super Oferta", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/1z6de9v" },
-      { id: 13, title: "Achado Imperdível - Oferta Especial Mercado Livre #13", category: "casa", price: "Confira na loja", badge: "Mais Vendido", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/2WdDzek" },
-      { id: 14, title: "Achado Imperdível - Oferta Especial Mercado Livre #14", category: "eletronicos", price: "Confira na loja", badge: "Oferta", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/1rNf8Sc" },
-      { id: 15, title: "Achado Imperdível - Oferta Especial Mercado Livre #15", category: "ferramentas", price: "Confira na loja", badge: "Destaque", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/18pS8s5" },
-      { id: 16, title: "Achado Imperdível - Oferta Especial Mercado Livre #16", category: "casa", price: "Confira na loja", badge: "Super Oferta", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/2Gvx7wv" },
-      { id: 17, title: "Achado Imperdível - Oferta Especial Mercado Livre #17", category: "ferramentas", price: "Confira na loja", badge: "Mais Vendido", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/21fyigc" },
-      { id: 18, title: "Achado Imperdível - Oferta Especial Mercado Livre #18", category: "auto", price: "Confira na loja", badge: "Destaque", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/1jNzwRj" },
-      { id: 19, title: "Achado Imperdível - Oferta Especial Mercado Livre #19", category: "ferramentas", price: "Confira na loja", badge: "Oferta", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/31zRdCo" },
-      { id: 20, title: "Achado Imperdível - Oferta Especial Mercado Livre #20", category: "casa", price: "Confira na loja", badge: "Mais Vendido", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/2EKjkHi" },
-      { id: 21, title: "Achado Imperdível - Oferta Especial Mercado Livre #21", category: "eletronicos", price: "Confira na loja", badge: "Destaque", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/1v2JM9E" },
-      { id: 22, title: "Achado Imperdível - Oferta Especial Mercado Livre #22", category: "ferramentas", price: "Confira na loja", badge: "Super Oferta", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/1mTqGLw" },
-      { id: 23, title: "Achado Imperdível - Oferta Especial Mercado Livre #23", category: "casa", price: "Confira na loja", badge: "Oferta", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/1pToNsU" },
-      { id: 24, title: "Achado Imperdível - Oferta Especial Mercado Livre #24", category: "ferramentas", price: "Confira na loja", badge: "Mais Vendido", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/1eEKhRa" },
-      { id: 25, title: "Achado Imperdível - Oferta Especial Mercado Livre #25", category: "auto", price: "Confira na loja", badge: "Destaque", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/2jM8B4A" },
-      { id: 26, title: "Achado Imperdível - Oferta Especial Mercado Livre #26", category: "casa", price: "Confira na loja", badge: "Oferta", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/1fNY6c4" },
-      { id: 27, title: "Achado Imperdível - Oferta Especial Mercado Livre #27", category: "ferramentas", price: "Confira na loja", badge: "Super Oferta", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/1JrETTs" },
-      { id: 28, title: "Achado Imperdível - Oferta Especial Mercado Livre #28", category: "eletronicos", price: "Confira na loja", badge: "Mais Vendido", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/1DDMGUc" },
-      { id: 29, title: "Achado Imperdível - Oferta Especial Mercado Livre #29", category: "casa", price: "Confira na loja", badge: "Destaque", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/2Md4abG" },
-      { id: 30, title: "Achado Imperdível - Oferta Especial Mercado Livre #30", category: "ferramentas", price: "Confira na loja", badge: "Oferta", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/2NHd6CN" },
-      { id: 31, title: "Achado Imperdível - Oferta Especial Mercado Livre #31", category: "auto", price: "Confira na loja", badge: "Mais Vendido", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/2KoSp53" },
-      { id: 32, title: "Achado Imperdível - Oferta Especial Mercado Livre #32", category: "casa", price: "Confira na loja", badge: "Super Oferta", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/1JMyf1e" },
-      { id: 33, title: "Achado Imperdível - Oferta Especial Mercado Livre #33", category: "ferramentas", price: "Confira na loja", badge: "Destaque", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/31sJysU" },
-      { id: 34, title: "Achado Imperdível - Oferta Especial Mercado Livre #34", category: "casa", price: "Confira na loja", badge: "Oferta", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/2fEfjAV" }
+      { id: 1, title: "Carregador Inteligente De Bateria Automotiva 12v", category: "auto", price: "Ver no Mercado Livre", badge: "Destaque", full: true, freeShipping: true, image: "https://http2.mlstatic.com/D_NQ_NP_2X_712572-MLA119455735087_102026-F.webp", link: "https://meli.la/1oj63h8" },
+      { id: 2, title: "Achado Imperdível - Oferta #2", category: "ferramentas", price: "Ver no Mercado Livre", badge: "Oferta", full: true, freeShipping: true, image: "https://http2.mlstatic.com/D_NQ_NP_2X_716732-MLA99952834055_112025-F.webp", link: "https://meli.la/1W27mkD" },
+      { id: 3, title: "Lavadora Lava Jato Portátil Pressão Baterias Maleta", category: "ferramentas", price: "Ver no Mercado Livre", badge: "Mais Vendido", full: true, freeShipping: true, image: "https://http2.mlstatic.com/D_NQ_NP_2X_710675-MLB89102120983_082025-F-lavadora-lava-jato-portatil-pressao-2-baterias--maleta.webp", link: "https://meli.la/1jjQxdG" },
+      { id: 4, title: "Kit 3 Camisetas Dryfit Premium Masculina Academia Caminhada", category: "eletronicos", price: "Ver no Mercado Livre", badge: "Super Oferta", full: true, freeShipping: true, image: "https://http2.mlstatic.com/D_NQ_NP_2X_828672-MLB116575135280_092026-F-kit-3-camiseta-dryfit-premium-masculina-academia-caminhada.webp", link: "https://meli.la/1H9jUHN" },
+      { id: 5, title: "Achado Imperdível - Oferta #5", category: "casa", price: "Ver no Mercado Livre", badge: "Promocional", full: true, freeShipping: true, image: "https://http2.mlstatic.com/D_NQ_NP_2X_875655-MLA110077072290_042026-F.webp", link: "https://meli.la/2Pvv2ow" },
+      { id: 6, title: "Achado Imperdível - Oferta #6", category: "ferramentas", price: "Ver no Mercado Livre", badge: "Destaque", full: true, freeShipping: true, image: "https://http2.mlstatic.com/D_NQ_NP_2X_793631-MLA99463174010_112025-F.webp", link: "https://meli.la/29DHo1j" },
+      { id: 7, title: "Drone E88 Profissional Dobrável Câmera HD e Controle", category: "eletronicos", price: "Ver no Mercado Livre", badge: "Oferta", full: true, freeShipping: true, image: "https://http2.mlstatic.com/D_NQ_NP_2X_618092-MLB117955957392_102026-F-drone-e88-profissional-dobravel-camera-hd-e-controle-remoto.webp", link: "https://meli.la/1u4cMde" },
+      { id: 8, title: "Achado Imperdível - Oferta #8", category: "eletronicos", price: "Ver no Mercado Livre", badge: "Mais Vendido", full: true, freeShipping: true, image: "https://http2.mlstatic.com/D_NQ_NP_2X_718324-MLA115593848250_092026-F.webp", link: "https://meli.la/2oggFQ9" },
+      { id: 9, title: "Achado Imperdível - Oferta #9", category: "ferramentas", price: "Ver no Mercado Livre", badge: "Destaque", full: true, freeShipping: true, image: "https://http2.mlstatic.com/D_NQ_NP_2X_801272-MLA99475189814_112025-F.webp", link: "https://meli.la/1i556Ng" },
+      { id: 10, title: "Achado Imperdível - Oferta #10", category: "casa", price: "Ver no Mercado Livre", badge: "Oferta", full: true, freeShipping: true, image: "https://http2.mlstatic.com/D_NQ_NP_2X_757303-MLA100212647277_122025-F.webp", link: "https://meli.la/1CY1Gsn" },
+      { id: 11, title: "Achado Imperdível - Oferta #11", category: "auto", price: "Ver no Mercado Livre", badge: "Destaque", full: true, freeShipping: true, image: "https://http2.mlstatic.com/D_NQ_NP_2X_813992-MLA110191235469_042026-F.webp", link: "https://meli.la/27Qa4nN" },
+      { id: 12, title: "Achado Imperdível - Oferta #12", category: "ferramentas", price: "Ver no Mercado Livre", badge: "Super Oferta", full: true, freeShipping: true, image: "https://http2.mlstatic.com/D_NQ_NP_2X_945969-MLA117038173985_092026-F.webp", link: "https://meli.la/1z6de9v" },
+      { id: 13, title: "Achado Imperdível - Oferta #13", category: "casa", price: "Ver no Mercado Livre", badge: "Mais Vendido", full: true, freeShipping: true, image: "https://http2.mlstatic.com/D_NQ_NP_2X_670486-MLA111304459310_052026-F.webp", link: "https://meli.la/2WdDzek" },
+      { id: 14, title: "Achado Imperdível - Oferta #14", category: "eletronicos", price: "Ver no Mercado Livre", badge: "Oferta", full: true, freeShipping: true, image: "https://http2.mlstatic.com/D_NQ_NP_2X_990739-MLA110039600315_042026-F.webp", link: "https://meli.la/1rNf8Sc" },
+      { id: 15, title: "Achado Imperdível - Oferta #15", category: "ferramentas", price: "Ver no Mercado Livre", badge: "Destaque", full: true, freeShipping: true, image: "https://http2.mlstatic.com/D_NQ_NP_2X_644436-MLA100070949509_122025-F.webp", link: "https://meli.la/18pS8s5" },
+      { id: 16, title: "Achado Imperdível - Oferta #16", category: "casa", price: "Ver no Mercado Livre", badge: "Super Oferta", full: true, freeShipping: true, image: "https://http2.mlstatic.com/D_NQ_NP_2X_816506-MLA100855347058_122025-F.webp", link: "https://meli.la/2Gvx7wv" },
+      { id: 17, title: "Achado Imperdível - Oferta #17", category: "ferramentas", price: "Ver no Mercado Livre", badge: "Mais Vendido", full: true, freeShipping: true, image: "https://http2.mlstatic.com/D_NQ_NP_2X_779043-MLA109634948073_032026-F.webp", link: "https://meli.la/21fyigc" },
+      { id: 18, title: "Dispenser de Grãos 5kg com Copo Medidor Organizador", category: "casa", price: "Ver no Mercado Livre", badge: "Destaque", full: true, freeShipping: true, image: "https://http2.mlstatic.com/D_NQ_NP_2X_989016-MLA117491645790_102026-F.webp", link: "https://meli.la/1jNzwRj" },
+      { id: 19, title: "Dispenser de Grãos 5kg Copo Medidor Organizador Alimentos", category: "casa", price: "Ver no Mercado Livre", badge: "Oferta", full: true, freeShipping: true, image: "https://http2.mlstatic.com/D_NQ_NP_2X_752263-MLB117413385381_092026-F-dispenser-de-graos-5kg-copo-medidor-organizador-alimentos.webp", link: "https://meli.la/31zRdCo" },
+      { id: 20, title: "Achado Imperdível - Oferta #20", category: "casa", price: "Ver no Mercado Livre", badge: "Mais Vendido", full: true, freeShipping: true, image: "https://http2.mlstatic.com/D_NQ_NP_2X_615389-MLA99503298262_112025-F.webp", link: "https://meli.la/2EKjkHi" },
+      { id: 21, title: "Kit Saúde Combo 3 em 1 Aparelho Pressão Oxímetro Termômetro", category: "eletronicos", price: "Ver no Mercado Livre", badge: "Destaque", full: true, freeShipping: true, image: "https://http2.mlstatic.com/D_NQ_NP_2X_762324-MLA114173652868_082026-F.webp", link: "https://meli.la/1v2JM9E" },
+      { id: 22, title: "Kit Saúde Combo 3 em 1 Aparelho Pressão Oxímetro Termômetro", category: "eletronicos", price: "Ver no Mercado Livre", badge: "Super Oferta", full: true, freeShipping: true, image: "https://http2.mlstatic.com/D_NQ_NP_2X_907393-MLB109787062527_032026-F-kit-saude-combo-3-em-1-aparelho-pressao-oximetro-termometro.webp", link: "https://meli.la/1mTqGLw" },
+      { id: 23, title: "Luz de Cortina de Cordão Natal DIY RGB Bluetooth", category: "casa", price: "Ver no Mercado Livre", badge: "Oferta", full: true, freeShipping: true, image: "https://http2.mlstatic.com/D_NQ_NP_2X_854742-MLB117878625282_102026-F-luz-de-cortina-de-cordao-natal-diy-rgb-couro-bluetooth-2x2m.webp", link: "https://meli.la/1pToNsU" },
+      { id: 24, title: "Achado Imperdível - Oferta #24", category: "ferramentas", price: "Ver no Mercado Livre", badge: "Mais Vendido", full: true, freeShipping: true, image: "https://http2.mlstatic.com/D_NQ_NP_2X_924584-MLA113615054109_062026-F.webp", link: "https://meli.la/1eEKhRa" },
+      { id: 25, title: "Frente Titan 2025 Completa CG Titan 160 Adaptada", category: "auto", price: "Ver no Mercado Livre", badge: "Destaque", full: true, freeShipping: true, image: "https://http2.mlstatic.com/D_NQ_NP_2X_807040-MLB117196276017_092026-F-frente-titan-2025-completa-cg-titan-160-adaptada-2014-a-2024.webp", link: "https://meli.la/2jM8B4A" },
+      { id: 26, title: "Retífica Portátil Kit Profissional 76 em 1 Potente Sem Fio", category: "ferramentas", price: "Ver no Mercado Livre", badge: "Oferta", full: true, freeShipping: true, image: "https://http2.mlstatic.com/D_NQ_NP_2X_852969-MLB119604234727_102026-F-retifica-portatil-kit-profissional-76-em-1-potente-sem-fio.webp", link: "https://meli.la/1fNY6c4" },
+      { id: 27, title: "Achado Imperdível - Oferta #27", category: "ferramentas", price: "Ver no Mercado Livre", badge: "Super Oferta", full: true, freeShipping: true, image: "https://http2.mlstatic.com/D_NQ_NP_2X_752657-MLA115356420195_072026-F.webp", link: "https://meli.la/1JrETTs" },
+      { id: 28, title: "Papai Noel Sobe e Desce Corda Musical Canta Decoração Natal", category: "casa", price: "Ver no Mercado Livre", badge: "Mais Vendido", full: true, freeShipping: true, image: "https://http2.mlstatic.com/D_NQ_NP_2X_632408-MLB118198524665_092026-F-papai-noel-sobe-e-desce-corda-musical-canta-decoracao-natal.webp", link: "https://meli.la/1DDMGUc" },
+      { id: 29, title: "Achado Imperdível - Oferta #29", category: "casa", price: "Ver no Mercado Livre", badge: "Destaque", full: true, freeShipping: true, image: "https://http2.mlstatic.com/D_NQ_NP_2X_734144-MLA99450921904_112025-F.webp", link: "https://meli.la/2Md4abG" },
+      { id: 30, title: "Achado Imperdível - Oferta #30", category: "ferramentas", price: "Ver no Mercado Livre", badge: "Oferta", full: true, freeShipping: true, image: "https://http2.mlstatic.com/D_NQ_NP_2X_782637-MLA99983076357_112025-F.webp", link: "https://meli.la/2NHd6CN" },
+      { id: 31, title: "Achado Imperdível - Oferta #31", category: "auto", price: "Ver no Mercado Livre", badge: "Mais Vendido", full: true, freeShipping: true, image: "https://http2.mlstatic.com/D_NQ_NP_2X_618685-MLA109363103988_042026-F.webp", link: "https://meli.la/2KoSp53" },
+      { id: 32, title: "Achado Imperdível - Oferta #32", category: "casa", price: "Ver no Mercado Livre", badge: "Super Oferta", full: true, freeShipping: true, image: "https://http2.mlstatic.com/D_NQ_NP_2X_657162-MLA99508801934_112025-F.webp", link: "https://meli.la/1JMyf1e" },
+      { id: 33, title: "Achado Imperdível - Oferta #33", category: "ferramentas", price: "Ver no Mercado Livre", badge: "Destaque", full: true, freeShipping: true, image: "https://http2.mlstatic.com/D_NQ_NP_2X_795262-MLA119672562963_102026-F.webp", link: "https://meli.la/31sJysU" },
+      { id: 34, title: "Serra Circular Portátil Brushless 2 Baterias e 6 Lâminas", category: "ferramentas", price: "Ver no Mercado Livre", badge: "Oferta", full: true, freeShipping: true, image: "https://http2.mlstatic.com/D_NQ_NP_2X_958380-MLB116589741174_092026-F-serra-circular-portatil-brushless-2-baterias--6-laminas.webp", link: "https://meli.la/2fEfjAV" }
     ];
 
     let currentCategory = 'todos';
