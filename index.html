@@ -122,13 +122,19 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
 
-    .card-img {
+    .card-img-link {
+      display: block;
       width: 100%;
       height: 200px;
-      object-fit: contain;
       background: #fff;
-      padding: 10px;
       border-bottom: 1px solid #f0f0f0;
+    }
+
+    .card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 10px;
     }
 
     .card-body {
@@ -150,6 +156,11 @@
       text-transform: uppercase;
     }
 
+    .title-link {
+      text-decoration: none;
+      color: inherit;
+    }
+
     .title {
       font-size: 0.9rem;
       color: var(--text-main);
@@ -160,6 +171,10 @@
       -webkit-box-orient: vertical;
       overflow: hidden;
       height: 2.6em;
+    }
+
+    .title-link:hover .title {
+      color: var(--ml-blue);
     }
 
     .old-price {
@@ -249,10 +264,10 @@
   </header>
 
   <div class="categories">
-    <button class="cat-btn active" onclick="filterCategory('todos', this)">Todos</button>
+    <button class="cat-btn active" onclick="filterCategory('todos', this)">Todos Os Achados</button>
     <button class="cat-btn" onclick="filterCategory('ferramentas', this)">Ferramentas</button>
     <button class="cat-btn" onclick="filterCategory('casa', this)">Casa & Utilidades</button>
-    <button class="cat-btn" onclick="filterCategory('eletronicos', this)">Eletrónicos</button>
+    <button class="cat-btn" onclick="filterCategory('eletronicos', this)">Eletrônicos</button>
     <button class="cat-btn" onclick="filterCategory('auto', this)">Automotivo</button>
   </div>
 
@@ -261,33 +276,43 @@
   </div>
 
   <script>
+    const defaultImg = "https://http2.mlstatic.com/D_NQ_NP_632009-MLB72671569032_112023-O.webp";
+
     const products = [
-      {
-        id: 1,
-        title: "Jogo De Ferramentas Com Maleta Completa",
-        category: "ferramentas",
-        originalPrice: "R$ 199,90",
-        price: "R$ 139,90",
-        discount: "30% OFF",
-        badge: "Oferta do Dia",
-        full: true,
-        freeShipping: true,
-        image: "https://http2.mlstatic.com/D_NQ_NP_632009-MLB72671569032_112023-O.webp",
-        link: "https://mercadolivre.com.br"
-      },
-      {
-        id: 2,
-        title: "Produto em Destaque do Dequinho",
-        category: "ferramentas",
-        originalPrice: "R$ 89,90",
-        price: "R$ 49,90",
-        discount: "44% OFF",
-        badge: "Mais Vendido",
-        full: true,
-        freeShipping: true,
-        image: "https://http2.mlstatic.com/D_NQ_NP_881775-MLB74116564032_012024-O.webp",
-        link: "https://meli.la/2bGqSUp"
-      }
+      { id: 1, title: "Achado Imperdível - Oferta Especial Mercado Livre #1", category: "ferramentas", price: "Confira na loja", badge: "Destaque", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/1oj63h8" },
+      { id: 2, title: "Achado Imperdível - Oferta Especial Mercado Livre #2", category: "ferramentas", price: "Confira na loja", badge: "Oferta", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/1W27mkD" },
+      { id: 3, title: "Achado Imperdível - Oferta Especial Mercado Livre #3", category: "ferramentas", price: "Confira na loja", badge: "Mais Vendido", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/1jjQxdG" },
+      { id: 4, title: "Achado Imperdível - Oferta Especial Mercado Livre #4", category: "casa", price: "Confira na loja", badge: "Super Oferta", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/1H9jUHN" },
+      { id: 5, title: "Achado Imperdível - Oferta Especial Mercado Livre #5", category: "casa", price: "Confira na loja", badge: "Promocional", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/2Pvv2ow" },
+      { id: 6, title: "Achado Imperdível - Oferta Especial Mercado Livre #6", category: "ferramentas", price: "Confira na loja", badge: "Destaque", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/29DHo1j" },
+      { id: 7, title: "Achado Imperdível - Oferta Especial Mercado Livre #7", category: "casa", price: "Confira na loja", badge: "Oferta", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/1u4cMde" },
+      { id: 8, title: "Achado Imperdível - Oferta Especial Mercado Livre #8", category: "eletronicos", price: "Confira na loja", badge: "Mais Vendido", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/2oggFQ9" },
+      { id: 9, title: "Achado Imperdível - Oferta Especial Mercado Livre #9", category: "ferramentas", price: "Confira na loja", badge: "Destaque", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/1i556Ng" },
+      { id: 10, title: "Achado Imperdível - Oferta Especial Mercado Livre #10", category: "casa", price: "Confira na loja", badge: "Oferta", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/1CY1Gsn" },
+      { id: 11, title: "Achado Imperdível - Oferta Especial Mercado Livre #11", category: "auto", price: "Confira na loja", badge: "Destaque", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/27Qa4nN" },
+      { id: 12, title: "Achado Imperdível - Oferta Especial Mercado Livre #12", category: "ferramentas", price: "Confira na loja", badge: "Super Oferta", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/1z6de9v" },
+      { id: 13, title: "Achado Imperdível - Oferta Especial Mercado Livre #13", category: "casa", price: "Confira na loja", badge: "Mais Vendido", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/2WdDzek" },
+      { id: 14, title: "Achado Imperdível - Oferta Especial Mercado Livre #14", category: "eletronicos", price: "Confira na loja", badge: "Oferta", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/1rNf8Sc" },
+      { id: 15, title: "Achado Imperdível - Oferta Especial Mercado Livre #15", category: "ferramentas", price: "Confira na loja", badge: "Destaque", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/18pS8s5" },
+      { id: 16, title: "Achado Imperdível - Oferta Especial Mercado Livre #16", category: "casa", price: "Confira na loja", badge: "Super Oferta", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/2Gvx7wv" },
+      { id: 17, title: "Achado Imperdível - Oferta Especial Mercado Livre #17", category: "ferramentas", price: "Confira na loja", badge: "Mais Vendido", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/21fyigc" },
+      { id: 18, title: "Achado Imperdível - Oferta Especial Mercado Livre #18", category: "auto", price: "Confira na loja", badge: "Destaque", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/1jNzwRj" },
+      { id: 19, title: "Achado Imperdível - Oferta Especial Mercado Livre #19", category: "ferramentas", price: "Confira na loja", badge: "Oferta", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/31zRdCo" },
+      { id: 20, title: "Achado Imperdível - Oferta Especial Mercado Livre #20", category: "casa", price: "Confira na loja", badge: "Mais Vendido", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/2EKjkHi" },
+      { id: 21, title: "Achado Imperdível - Oferta Especial Mercado Livre #21", category: "eletronicos", price: "Confira na loja", badge: "Destaque", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/1v2JM9E" },
+      { id: 22, title: "Achado Imperdível - Oferta Especial Mercado Livre #22", category: "ferramentas", price: "Confira na loja", badge: "Super Oferta", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/1mTqGLw" },
+      { id: 23, title: "Achado Imperdível - Oferta Especial Mercado Livre #23", category: "casa", price: "Confira na loja", badge: "Oferta", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/1pToNsU" },
+      { id: 24, title: "Achado Imperdível - Oferta Especial Mercado Livre #24", category: "ferramentas", price: "Confira na loja", badge: "Mais Vendido", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/1eEKhRa" },
+      { id: 25, title: "Achado Imperdível - Oferta Especial Mercado Livre #25", category: "auto", price: "Confira na loja", badge: "Destaque", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/2jM8B4A" },
+      { id: 26, title: "Achado Imperdível - Oferta Especial Mercado Livre #26", category: "casa", price: "Confira na loja", badge: "Oferta", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/1fNY6c4" },
+      { id: 27, title: "Achado Imperdível - Oferta Especial Mercado Livre #27", category: "ferramentas", price: "Confira na loja", badge: "Super Oferta", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/1JrETTs" },
+      { id: 28, title: "Achado Imperdível - Oferta Especial Mercado Livre #28", category: "eletronicos", price: "Confira na loja", badge: "Mais Vendido", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/1DDMGUc" },
+      { id: 29, title: "Achado Imperdível - Oferta Especial Mercado Livre #29", category: "casa", price: "Confira na loja", badge: "Destaque", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/2Md4abG" },
+      { id: 30, title: "Achado Imperdível - Oferta Especial Mercado Livre #30", category: "ferramentas", price: "Confira na loja", badge: "Oferta", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/2NHd6CN" },
+      { id: 31, title: "Achado Imperdível - Oferta Especial Mercado Livre #31", category: "auto", price: "Confira na loja", badge: "Mais Vendido", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/2KoSp53" },
+      { id: 32, title: "Achado Imperdível - Oferta Especial Mercado Livre #32", category: "casa", price: "Confira na loja", badge: "Super Oferta", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/1JMyf1e" },
+      { id: 33, title: "Achado Imperdível - Oferta Especial Mercado Livre #33", category: "ferramentas", price: "Confira na loja", badge: "Destaque", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/31sJysU" },
+      { id: 34, title: "Achado Imperdível - Oferta Especial Mercado Livre #34", category: "casa", price: "Confira na loja", badge: "Oferta", full: true, freeShipping: true, image: defaultImg, link: "https://meli.la/2fEfjAV" }
     ];
 
     let currentCategory = 'todos';
@@ -305,14 +330,16 @@
         const card = document.createElement('div');
         card.className = 'card';
         card.innerHTML = `
-          <img src="${p.image}" class="card-img" alt="${p.title}">
+          <a href="${p.link}" target="_blank" class="card-img-link">
+            <img src="${p.image}" class="card-img" alt="${p.title}">
+          </a>
           <div class="card-body">
             ${p.badge ? `<span class="badge">${p.badge}</span>` : ''}
-            <h2 class="title">${p.title}</h2>
-            ${p.originalPrice ? `<span class="old-price">${p.originalPrice}</span>` : ''}
+            <a href="${p.link}" target="_blank" class="title-link">
+              <h2 class="title">${p.title}</h2>
+            </a>
             <div class="price-row">
               <span class="price">${p.price}</span>
-              ${p.discount ? `<span class="discount">${p.discount}</span>` : ''}
             </div>
             <div class="tags">
               ${p.full ? `<span class="tag-full">⚡ FULL</span>` : ''}
